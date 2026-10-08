@@ -49,6 +49,10 @@ INSTALLED_APPS = [
 
     'api',
     'users',
+
+    'rest_framework',
+    'rest_framework_simplejwt',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -151,3 +155,19 @@ EMAIL_HOST_PASSWORD = env('EMAIL_PASSWORD')
 
 # Default from email address used in your app
 DEFAULT_FROM_EMAIL = 'djumanovdev@gmail.com'
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Django API DOCS',
+    'DESCRIPTION': 'organish uchun',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}
